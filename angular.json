@@ -65,7 +65,7 @@
           }
         }
       }
-    }
+    },
   },
   "schematics": {
     "@schematics/angular:component": {
