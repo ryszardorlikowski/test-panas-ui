@@ -1,0 +1,1473 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [
+        {
+            "name": "PansaUIService",
+            "id": "injectable-PansaUIService-8706f507cc486d05e42f5c1dadb4e275b0e93c2c711afe9bc558fac0dd52cf16d44cdd7b24d70e7f472139a998613df49fac9ded81266afc037c9aec03c864cf",
+            "file": "projects/pansa-ui/src/lib/pansa-ui.service.ts",
+            "properties": [],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class PansaUIService {\n\n  constructor() { }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            },
+            "extends": [],
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "PansaBreadcrumbComponent",
+            "id": "component-PansaBreadcrumbComponent-55818d3dd6b249a491b108115f97ea5923fb60ed1ab5e00aebdfff3754ff9e2b12538deb862fba2ec5f7b990ff80fa5640c55e1e829c8a669ae69b290830be30",
+            "file": "projects/pansa-ui/src/lib/breadcrumb/breadcrumb.component.ts",
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
+            "entryComponents": [],
+            "host": {},
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "pansa-breadcrumb",
+            "styleUrls": [
+                "./breadcrumb.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./breadcrumb.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "staticContainer",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'container', {static: false}"
+                        }
+                    ],
+                    "modifierKind": [
+                        170,
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "onContentChange",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "setLastLinkAttribute",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  ElementRef,\n  Renderer2,\n  ViewChild,\n  ViewEncapsulation\n} from '@angular/core';\n\n@Component({\n  selector: 'pansa-breadcrumb',\n  templateUrl: './breadcrumb.component.html',\n  styleUrls: ['./breadcrumb.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n  host: {\n    class: 'pansa-breadcrumb'\n  }\n})\nexport class PansaBreadcrumbComponent implements AfterViewInit {\n  @ViewChild('container', {static: false})\n  // @ts-ignore\n  private staticContainer: ElementRef;\n\n  constructor(private renderer: Renderer2) {\n  }\n\n  public ngAfterViewInit() {\n    this.setLastLinkAttribute();\n  }\n\n  public onContentChange() {\n    this.setLastLinkAttribute();\n  }\n\n  private setLastLinkAttribute() {\n    const children = Array.from(this.staticContainer.nativeElement.children);\n    this.renderer.setAttribute(\n      children[children.length - 1], 'aria-current', 'page'\n    );\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".pansa-breadcrumb-nav {\n  display: inline-flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n",
+                    "styleUrl": "./breadcrumb.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 22,
+                "jsdoctags": [
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "AfterViewInit"
+            ],
+            "templateData": "<nav\n  #container\n  class=\"pansa-breadcrumb-nav\"\n  aria-label=\"Breadcrumb\"\n  (cdkObserveContent)=\"onContentChange()\"\n>\n  <ng-content></ng-content>\n</nav>\n"
+        },
+        {
+            "name": "PansaButtonComponent",
+            "id": "component-PansaButtonComponent-a2337f5ea6c16e1376e6e4daedaacba7b3d658d6812b679897aa2fd35faed40fb3da083716b42793951e2060a728c37caaec4498d642df1666813708c1955c58",
+            "file": "projects/pansa-ui/src/lib/button/button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "host": {},
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "pansa-button",
+            "styleUrls": [
+                "./button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "level",
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "\"primary\" | \"secondary\" | \"tertiary\"",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "\"large\" | \"medium\" | \"small\"",
+                    "decorators": []
+                },
+                {
+                    "name": "theme",
+                    "defaultValue": "'dark'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "\"light\" | \"dark\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "noText",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 34,
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 46,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  AfterContentInit,\n  ChangeDetectionStrategy,\n  ChangeDetectorRef,\n  Component,\n  ElementRef,\n  Input,\n} from '@angular/core';\n\n@Component({\n  selector: 'pansa-button',\n  styleUrls: ['./button.component.scss'],\n  templateUrl: './button.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  host: {\n    class: 'pansa-button',\n    '[class.pansa-button-primary]': 'level === \"primary\"',\n    '[class.pansa-button-secondary]': 'level === \"secondary\"',\n    '[class.pansa-button-large]': 'size === \"large\"',\n    '[class.pansa-button-medium]': 'size === \"medium\"',\n    '[class.pansa-button-small]': 'size === \"small\"',\n    '[class.pansa-button-no-text]': 'noText === true',\n  }\n})\nexport class PansaButtonComponent implements AfterContentInit {\n  @Input() public level: 'primary' | 'secondary' | 'tertiary' = 'primary';\n  @Input() public size: 'large' | 'medium' | 'small' = 'medium';\n  @Input() public theme: 'light' | 'dark' = 'dark';\n  public noText = false;\n\n  constructor(\n    private elementRef: ElementRef<HTMLElement>,\n    private cdr: ChangeDetectorRef\n  ) {\n  }\n\n  get nativeElement(): HTMLElement {\n    return this.elementRef.nativeElement;\n  }\n\n  public ngAfterContentInit() {\n    const childNodes = Array.from(this.nativeElement.childNodes);\n    const textIndex = childNodes.findIndex(c => c.nodeType === Node.TEXT_NODE);\n    this.noText = textIndex === -1;\n    this.cdr.detectChanges();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '../core/colors';\n\n@mixin button-transition {\n  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,\n  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\n@mixin button-border($color) {\n  border: solid 0.0625rem $color;\n}\n\n.pansa-button {\n  @include button-transition;\n  text-align: center;\n  white-space: nowrap;\n  vertical-align: middle;\n  user-select: none;\n  cursor: pointer;\n  display: inline-flex;\n  align-items: center;\n\n  &.pansa-button-primary {\n    background-color: $primary;\n    @include button-border($action);\n    &:hover {\n      background-color: $primary-reversed;\n    }\n    &:focus {\n\n    }\n    &:disabled{\n      color: $primary-reversed;\n      @include button-border($primary-reversed);\n      &.pansa-button-reversed {\n      }\n    }\n  }\n}\n",
+                    "styleUrl": "./button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "elementRef",
+                        "type": "ElementRef<HTMLElement>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "cdr",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 34,
+                "jsdoctags": [
+                    {
+                        "name": "elementRef",
+                        "type": "ElementRef<HTMLElement>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "cdr",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "AfterContentInit"
+            ],
+            "accessors": {
+                "nativeElement": {
+                    "name": "nativeElement",
+                    "getSignature": {
+                        "name": "nativeElement",
+                        "type": "",
+                        "returnType": "HTMLElement",
+                        "line": 42
+                    }
+                }
+            },
+            "templateData": "<button class=\"pansa-button\">\n  <ng-content></ng-content>\n</button>\n"
+        },
+        {
+            "name": "PansaIconComponent",
+            "id": "component-PansaIconComponent-b4c592ba8b4dce6f2a3f7db5b6aa21eb11f21fab4aa8e22e0e7917accc5559f8c7d57059cb4260033ba231194fee0daa711d80dba6597e7c3086fc6e2ba03e6c",
+            "file": "projects/pansa-ui/src/lib/icon/icon.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "pansa-icon",
+            "styleUrls": [
+                "./icon.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./icon.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'pansa-icon',\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss']\n})\nexport class PansaIconComponent {\n\n  constructor() {}\n\n  ngOnInit() {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./icon.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "extends": [],
+            "templateData": "<p>icon works!</p>\n"
+        },
+        {
+            "name": "PansaMenuComponent",
+            "id": "component-PansaMenuComponent-e7f911e64eac33da272ecf3b6546984ff578908e30a0f0a5749ed8daeb7cdd04cfcc4979886617ffca4ed6bb81737e6e9b26aae8f5be1e44509995e10027eec7",
+            "file": "projects/pansa-ui/src/lib/menu/menu.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "pansa-menu",
+            "styleUrls": [
+                "./menu.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./menu.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'pansa-menu',\n  templateUrl: './menu.component.html',\n  styleUrls: ['./menu.component.scss']\n})\nexport class PansaMenuComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit() {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".menu {\n  /* Styl dla Menu */\n}\n",
+                    "styleUrl": "./menu.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<ul class=\"menu\">\n  <!-- Tutaj elementy menu -->\n</ul>\n"
+        },
+        {
+            "name": "PansaMenuItemComponent",
+            "id": "component-PansaMenuItemComponent-305892dab08ea98c1f5b2a0aa5f7d56ca19a173f1507048e7000db5c6f347e04d6c4d32385ace74653e045bbaf19128efe2e5ba5ddd42cf05e4c7e5b7ad23577",
+            "file": "projects/pansa-ui/src/lib/menuitem/menuitem.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "pansa-menu-item",
+            "styleUrls": [
+                "./menuitem.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./menuitem.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "itemText",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\n\n@Component({\n  selector: 'pansa-menu-item',\n  templateUrl: './menuitem.component.html',\n  styleUrls: ['./menuitem.component.scss']\n})\nexport class PansaMenuItemComponent implements OnInit {\n  @Input() itemText: string = '';\n\n  constructor() {}\n\n  ngOnInit() {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".menu-item {\n  /* Styl dla elementu menu */\n}\n",
+                    "styleUrl": "./menuitem.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<li class=\"menu-item\">\n  {{ itemText }}\n</li>\n"
+        },
+        {
+            "name": "PansaSidebarComponent",
+            "id": "component-PansaSidebarComponent-8e58d2be386f7dec2c8489846577e9471732f6cbd988e31462c6efbbe3347eeb7aad37bb9e7f18896d7af6d433bad04cbce332243771fd7af8b1bfea91d9779b",
+            "file": "projects/pansa-ui/src/lib/sidebar/sidebar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "pansa-sidebar",
+            "styleUrls": [
+                "./sidebar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./sidebar.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, OnInit} from '@angular/core';\n\n@Component({\n  selector: 'pansa-sidebar',\n  templateUrl: './sidebar.component.html',\n  styleUrls: ['./sidebar.component.scss']\n})\nexport class PansaSidebarComponent implements OnInit {\n  constructor() {\n  }\n\n  ngOnInit() {\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".topbar {\n  /* Styl dla TopBar */\n}\n",
+                    "styleUrl": "./sidebar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"topbar\">\n  <!-- Tutaj treść TopBar -->\n</div>\n"
+        },
+        {
+            "name": "PansaTopbarComponent",
+            "id": "component-PansaTopbarComponent-00488b8b383aeaace748afae845180e7683485f6752eaae5cd1fc4d47585efb8d875097090bc8c2157f10ca7d19e61f10edc322f977ae0afed69e0aa98ea9f0e",
+            "file": "projects/pansa-ui/src/lib/topbar/topbar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "pansa-topbar",
+            "styleUrls": [
+                "./topbar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./topbar.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'pansa-topbar',\n  templateUrl: './topbar.component.html',\n  styleUrls: ['./topbar.component.scss']\n})\nexport class PansaTopbarComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit() {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./topbar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>topbar works!</p>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "PansaUIModule",
+            "id": "module-PansaUIModule-6af8116c0146f2cb084591c51f5f572a0f10b6bad0bb8e76116959607554ef9e5979e4cf911fd9b850194e5fa0ec39fd5c980c9fc5e78ac7822561498dc535c3",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/pansa-ui/src/lib/pansa-ui.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { PansaButtonComponent } from './button/button.component';\nimport { PansaMenuComponent } from './menu/menu.component';\nimport { PansaMenuItemComponent } from './menuitem/menuitem.component';\nimport { PansaTopbarComponent } from './topbar/topbar.component';\nimport { PansaBreadcrumbComponent } from './breadcrumb/breadcrumb.component';\nimport { PansaIconComponent } from './icon/icon.component';\n\n\n\n@NgModule({\n  declarations: [\n    PansaButtonComponent,\n    PansaMenuComponent,\n    PansaMenuItemComponent,\n    PansaTopbarComponent,\n    PansaBreadcrumbComponent,\n    PansaIconComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    PansaButtonComponent,\n    PansaMenuComponent,\n    PansaMenuItemComponent,\n    PansaTopbarComponent,\n    PansaBreadcrumbComponent,\n    PansaIconComponent\n  ]\n})\nexport class PansaUIModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "PansaBreadcrumbComponent"
+                        },
+                        {
+                            "name": "PansaButtonComponent"
+                        },
+                        {
+                            "name": "PansaIconComponent"
+                        },
+                        {
+                            "name": "PansaMenuComponent"
+                        },
+                        {
+                            "name": "PansaMenuItemComponent"
+                        },
+                        {
+                            "name": "PansaTopbarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "PansaBreadcrumbComponent"
+                        },
+                        {
+                            "name": "PansaButtonComponent"
+                        },
+                        {
+                            "name": "PansaIconComponent"
+                        },
+                        {
+                            "name": "PansaMenuComponent"
+                        },
+                        {
+                            "name": "PansaMenuItemComponent"
+                        },
+                        {
+                            "name": "PansaTopbarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "BasicBreadcrumbs",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/breadcrumbs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "BasicMenu",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "BasicMenuItem",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/menuitem.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "BasicSidebar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "BasicTopbar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/topbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ICONS_DCT",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/lib/icon/icons-dictionary.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type",
+                "defaultValue": "{\n  'icon-test':\n    \"<circle xmlns=\\\"http://www.w3.org/2000/svg\\\" style=\\\"fill:#030104;\\\" cx=\\\"15.979\\\" cy=\\\"15.977\\\" r=\\\"6.117\\\"/>\"\n}"
+            },
+            {
+                "name": "preview",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Preview",
+                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  component: PansaButtonComponent,\n  props: {\n    level: 'primary',\n    size: 'medium',\n    theme: 'dark',\n    noText: false,\n  },\n  template: `\n    <pansa-button [level]=\"level\" [size]=\"size\" [theme]=\"theme\">\n      Text\n    </pansa-button>\n  `\n})"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  component: PansaButtonComponent,\n  props: {\n    level: 'secondary',\n    size: 'medium',\n    theme: 'light',\n    noText: false,\n  },\n  template: `\n    <pansa-button [level]=\"level\" [size]=\"size\" [theme]=\"theme\">\n      Text\n    </pansa-button>\n  `\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/breadcrumbs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(args: any) => {\n  return {\n    component: PansaBreadcrumbComponent,\n    props: args,\n  };\n}"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(args: any) => {\n  return {\n    component: PansaMenuComponent,\n    props: args,\n  };\n}"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/menuitem.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(args: any) => {\n  return {\n    component: PansaMenuItemComponent,\n    props: args,\n  };\n}"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(args: any) => {\n  return {\n    component: PansaSidebarComponent,\n    props: args,\n  };\n}"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pansa-ui/src/stories/topbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(args: any) => {\n  return {\n    component: PansaTopbarComponent,\n    props: args,\n  };\n}"
+            }
+        ],
+        "functions": [
+            {
+                "name": "pansaColorToHex",
+                "file": "projects/pansa-ui/src/lib/core/colors.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "pansaColor",
+                        "type": "PansaColors",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "returnType": "string",
+                "jsdoctags": [
+                    {
+                        "name": "pansaColor",
+                        "type": "PansaColors",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
+        "typealiases": [],
+        "enumerations": [
+            {
+                "name": "PansaColors",
+                "childs": [
+                    {
+                        "name": "ACTION",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "action"
+                    },
+                    {
+                        "name": "PRIMARY",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "primary"
+                    },
+                    {
+                        "name": "PRIMARY_REVERSED",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "primary-reversed"
+                    },
+                    {
+                        "name": "SECONDARY",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "secondary"
+                    },
+                    {
+                        "name": "TERTIARY",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "tertiary"
+                    },
+                    {
+                        "name": "INFORMATIVE",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "informative"
+                    },
+                    {
+                        "name": "NEGATIVE",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "negative"
+                    },
+                    {
+                        "name": "POSITIVE",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "positive"
+                    },
+                    {
+                        "name": "WARNING",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "warning"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/pansa-ui/src/lib/core/colors.ts"
+            }
+        ],
+        "groupedVariables": {
+            "projects/pansa-ui/src/stories/breadcrumbs.stories.ts": [
+                {
+                    "name": "BasicBreadcrumbs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/breadcrumbs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/breadcrumbs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(args: any) => {\n  return {\n    component: PansaBreadcrumbComponent,\n    props: args,\n  };\n}"
+                }
+            ],
+            "projects/pansa-ui/src/stories/menu.stories.ts": [
+                {
+                    "name": "BasicMenu",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(args: any) => {\n  return {\n    component: PansaMenuComponent,\n    props: args,\n  };\n}"
+                }
+            ],
+            "projects/pansa-ui/src/stories/menuitem.stories.ts": [
+                {
+                    "name": "BasicMenuItem",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/menuitem.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/menuitem.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(args: any) => {\n  return {\n    component: PansaMenuItemComponent,\n    props: args,\n  };\n}"
+                }
+            ],
+            "projects/pansa-ui/src/stories/sidebar.stories.ts": [
+                {
+                    "name": "BasicSidebar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/sidebar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/sidebar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(args: any) => {\n  return {\n    component: PansaSidebarComponent,\n    props: args,\n  };\n}"
+                }
+            ],
+            "projects/pansa-ui/src/stories/topbar.stories.ts": [
+                {
+                    "name": "BasicTopbar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/topbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/topbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(args: any) => {\n  return {\n    component: PansaTopbarComponent,\n    props: args,\n  };\n}"
+                }
+            ],
+            "projects/pansa-ui/src/lib/icon/icons-dictionary.ts": [
+                {
+                    "name": "ICONS_DCT",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/lib/icon/icons-dictionary.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type",
+                    "defaultValue": "{\n  'icon-test':\n    \"<circle xmlns=\\\"http://www.w3.org/2000/svg\\\" style=\\\"fill:#030104;\\\" cx=\\\"15.979\\\" cy=\\\"15.977\\\" r=\\\"6.117\\\"/>\"\n}"
+                }
+            ],
+            "projects/pansa-ui/.storybook/preview.ts": [
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                }
+            ],
+            "projects/pansa-ui/src/stories/button.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  component: PansaButtonComponent,\n  props: {\n    level: 'primary',\n    size: 'medium',\n    theme: 'dark',\n    noText: false,\n  },\n  template: `\n    <pansa-button [level]=\"level\" [size]=\"size\" [theme]=\"theme\">\n      Text\n    </pansa-button>\n  `\n})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pansa-ui/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  component: PansaButtonComponent,\n  props: {\n    level: 'secondary',\n    size: 'medium',\n    theme: 'light',\n    noText: false,\n  },\n  template: `\n    <pansa-button [level]=\"level\" [size]=\"size\" [theme]=\"theme\">\n      Text\n    </pansa-button>\n  `\n})"
+                }
+            ]
+        },
+        "groupedFunctions": {
+            "projects/pansa-ui/src/lib/core/colors.ts": [
+                {
+                    "name": "pansaColorToHex",
+                    "file": "projects/pansa-ui/src/lib/core/colors.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "pansaColor",
+                            "type": "PansaColors",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "returnType": "string",
+                    "jsdoctags": [
+                        {
+                            "name": "pansaColor",
+                            "type": "PansaColors",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "groupedEnumerations": {
+            "projects/pansa-ui/src/lib/core/colors.ts": [
+                {
+                    "name": "PansaColors",
+                    "childs": [
+                        {
+                            "name": "ACTION",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "action"
+                        },
+                        {
+                            "name": "PRIMARY",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "primary"
+                        },
+                        {
+                            "name": "PRIMARY_REVERSED",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "primary-reversed"
+                        },
+                        {
+                            "name": "SECONDARY",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "secondary"
+                        },
+                        {
+                            "name": "TERTIARY",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "tertiary"
+                        },
+                        {
+                            "name": "INFORMATIVE",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "informative"
+                        },
+                        {
+                            "name": "NEGATIVE",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "negative"
+                        },
+                        {
+                            "name": "POSITIVE",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "positive"
+                        },
+                        {
+                            "name": "WARNING",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "warning"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/pansa-ui/src/lib/core/colors.ts"
+                }
+            ]
+        },
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/pansa-ui/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/lib/breadcrumb/breadcrumb.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PansaBreadcrumbComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/lib/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PansaButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/lib/core/colors.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "pansaColorToHex",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/lib/icon/icon.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PansaIconComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/lib/icon/icons-dictionary.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ICONS_DCT",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/lib/menu/menu.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PansaMenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/lib/menuitem/menuitem.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PansaMenuItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/lib/pansa-ui.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "PansaUIService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/lib/sidebar/sidebar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PansaSidebarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/lib/topbar/topbar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PansaTopbarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/breadcrumbs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BasicBreadcrumbs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/breadcrumbs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/menu.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BasicMenu",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/menu.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/menuitem.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BasicMenuItem",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/menuitem.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/sidebar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BasicSidebar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/sidebar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/topbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BasicTopbar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pansa-ui/src/stories/topbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

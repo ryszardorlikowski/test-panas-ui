@@ -1,0 +1,38 @@
+@import '../core/colors';
+
+@mixin button-transition {
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@mixin button-border($color) {
+  border: solid 0.0625rem $color;
+}
+
+.pansa-button {
+  @include button-transition;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+
+  &.pansa-button-primary {
+    background-color: $primary;
+    @include button-border($action);
+    &:hover {
+      background-color: $primary-reversed;
+    }
+    &:focus {
+
+    }
+    &:disabled{
+      color: $primary-reversed;
+      @include button-border($primary-reversed);
+      &.pansa-button-reversed {
+      }
+    }
+  }
+}
