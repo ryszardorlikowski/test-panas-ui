@@ -1,4 +1,4 @@
-import './colors';
+@import './colors';
 
 $font-weight-normal: 400;
 $font-weight-bold: 700;
@@ -6,7 +6,7 @@ $font-weight-medium-bold: 600;
 
 @mixin typo-heading-1 {
   font-weight: 700;
-  color: $base;
+  color: $color-secondary;
   font-size: 2.5rem;
   line-height: 3.5rem;
 }

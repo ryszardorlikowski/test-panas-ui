@@ -1,0 +1,36 @@
+@import '../core/colors';
+@import '../core/radius';
+
+pansa-badge {
+  padding: 4px 8px;
+  border-radius: $radius;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  background-color: red;
+
+  &.pansa-badge-primary {
+    background-color: $color-primary;
+    color: $color-secondary;
+  }
+
+  &.pansa-badge-secondary {
+    background-color: $color-secondary;
+    color: $color-text-main-light;
+  }
+
+  &.pansa-badge-action {
+    background-color: $color-action;
+    color: $color-text-main;
+  }
+
+  &.pansa-badge-danger {
+    background-color: $color-danger;
+    color: $color-text-main;
+  }
+
+  &.pansa-badge-transparent {
+    background-color: transparent;
+    color: $color-text-main;
+  }
+}

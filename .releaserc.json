@@ -16,5 +16,4 @@
       "prepareCmd": "npm run update:version"
     }]
   ]
-
 }

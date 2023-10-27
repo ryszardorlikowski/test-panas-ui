@@ -37,6 +37,9 @@
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
+            "styles": [
+              "projects/pansa-ui/global.scss"
+            ],
             "configDir": "projects/pansa-ui/.storybook",
             "browserTarget": "pansa-ui:build",
             "compodoc": true,
@@ -65,7 +68,7 @@
           }
         }
       }
-    },
+    }
   },
   "schematics": {
     "@schematics/angular:component": {

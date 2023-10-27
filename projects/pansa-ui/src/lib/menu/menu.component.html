@@ -1,3 +1,7 @@
-<ul class="menu">
-  <!-- Tutaj elementy menu -->
+<ul class="pansa-menu">
+  <li *ngFor="let item of items" [class.has-icon]="item.icon">
+    <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+    {{ item.label }}
+    <pansa-badge level="primary">Etykieta</pansa-badge>
+  </li>
 </ul>

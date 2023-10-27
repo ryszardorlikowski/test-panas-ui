@@ -1,8 +1,30 @@
-$base: #000000;
+// Base colors
+$color-white: #ffffff;
+$color-black: #000000;
+$color-transparent: transparent;
 
-$action: #097d6c;
+// Brand/theme colors
+$color-primary: #101828;
+$color-primary-light: #2B3A50; // ToDo choose the right color
+$color-secondary: #E8FAFF;
+$color-secondary-light: #F0FCFF; // ToDo choose the right color
+$color-danger: #F04438;
+$color-danger-light: #F56B63; // ToDo choose the right color
+$color-action: #00AB00;
+$color-action-light: #33C533; // ToDo choose the right color
+$color-muted: #475467;
+$color-muted-light: #6F7B94; // ToDo choose the right color
 
-$primary: #637381;
-$primary-reversed: #ced4da;
+
+// Background colors
+$color-bg-main: #101828;
+$color-bg-main-light: #2B3A50; // ToDo choose the right color
+$color-bg-footer: #0C111D;
+$color-bg-footer-light: #252C3B; // ToDo choose the right color
+$color-bg-sidebar: #1D2939;
+$color-bg-sidebar-light: #37465B; // ToDo choose the right color
 
 
+// Text colors
+$color-text-main: #ffffff;
+$color-text-main-light: #001937; // ToDo choose the right color

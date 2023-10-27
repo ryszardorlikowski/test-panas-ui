@@ -5,27 +5,32 @@ import { PansaMenuItemComponent } from './menuitem/menuitem.component';
 import { PansaTopbarComponent } from './topbar/topbar.component';
 import { PansaBreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { PansaIconComponent } from './icon/icon.component';
+import { PansaBadgeComponent } from './badge/badge.component';
+import {NgClass} from "@angular/common";
 
 
 
 @NgModule({
   declarations: [
     PansaButtonComponent,
+    PansaBadgeComponent,
     PansaMenuComponent,
     PansaMenuItemComponent,
     PansaTopbarComponent,
     PansaBreadcrumbComponent,
-    PansaIconComponent
+    PansaIconComponent,
   ],
   imports: [
+    NgClass
   ],
   exports: [
     PansaButtonComponent,
+    PansaBadgeComponent,
     PansaMenuComponent,
     PansaMenuItemComponent,
     PansaTopbarComponent,
     PansaBreadcrumbComponent,
-    PansaIconComponent
+    PansaIconComponent,
   ]
 })
 export class PansaUIModule { }

@@ -1,3 +1,12 @@
-<button class="pansa-button">
+<button class="pansa-button" [ngClass]="{
+  'pansa-button-primary': level === 'primary',
+  'pansa-button-secondary': level === 'secondary',
+  'pansa-button-action': level === 'action',
+  'pansa-button-danger': level === 'danger',
+  'pansa-button-large': size === 'large',
+  'pansa-button-medium': size === 'medium',
+  'pansa-button-small': size === 'small',
+  'pansa-button-no-text': noText
+}">
   <ng-content></ng-content>
 </button>
