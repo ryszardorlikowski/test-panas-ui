@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/ryszardorlikowski/test-panas-ui/compare/v1.3.0...v1.4.0) (2023-10-27)
+
+
+### Features
+
+* test ([2d77543](https://github.com/ryszardorlikowski/test-panas-ui/commit/2d77543bc291ff1169d798016bf16958930d949a))
+
 # [1.3.0](https://github.com/ryszardorlikowski/test-panas-ui/compare/v1.2.0...v1.3.0) (2023-10-27)
 
 
