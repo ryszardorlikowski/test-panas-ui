@@ -849,16 +849,6 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "BasicMenuItem",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/pansa-ui/src/stories/menuitem.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "BasicSidebar",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -989,16 +979,6 @@
                 "deprecationMessage": "",
                 "type": "Story<literal type>",
                 "defaultValue": "(args) => ({\n  component: PansaMenuComponent,\n  props: args\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/pansa-ui/src/stories/menuitem.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "(args: any) => {\n  return {\n    component: PansaMenuItemComponent,\n    props: args,\n  };\n}"
             },
             {
                 "name": "Template",
@@ -1257,28 +1237,6 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "(args: any) => {\n  return {\n    component: PansaBreadcrumbComponent,\n    props: args,\n  };\n}"
-                }
-            ],
-            "projects/pansa-ui/src/stories/menuitem.stories.ts": [
-                {
-                    "name": "BasicMenuItem",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pansa-ui/src/stories/menuitem.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pansa-ui/src/stories/menuitem.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "(args: any) => {\n  return {\n    component: PansaMenuItemComponent,\n    props: args,\n  };\n}"
                 }
             ],
             "projects/pansa-ui/src/stories/sidebar.stories.ts": [
@@ -1742,26 +1700,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "WithoutIconsAndBadges",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pansa-ui/src/stories/menuitem.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "BasicMenuItem",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pansa-ui/src/stories/menuitem.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

@@ -26,6 +26,7 @@ export default {
   }
 };
 
+
 const Template: Story<ButtonProps & { label: string }> = ({label, ...args}) => ({
   component: PansaButtonComponent,
   props: args,
